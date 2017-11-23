@@ -32,7 +32,7 @@ else{
   echo "First query was unsuccessful";
 }
 
-/*
+
 //Get the institutionID for the insert into clientAccount
 $incrementID = $qry->insert_id;
 //If the created account is a client account create a client account
@@ -43,5 +43,4 @@ $qry->bind_param("i",$incre);
 $qry->execute();
 $qry->close();
 
-*/
  ?>
