@@ -2,9 +2,6 @@
 <body>
 Ladadad
 
-
-</body>
-</html>
 <?php
 
 
@@ -22,3 +19,5 @@ echo "Salt ", $dbSalt, "<br /> Hash " $dbHash;
 */
 
  ?>
+</body>
+</html>
