@@ -13,7 +13,7 @@ echo $email;
 
 $qry = $db->prepare("SELECT salt, hash FROM account");
 if($qry->execute()){
-  echo "Success"
+  echo "Success";
 }
 
 $rowcnt = $qry->num_rows;
