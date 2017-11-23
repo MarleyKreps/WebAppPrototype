@@ -1,19 +1,20 @@
 <?php
+/*
 require_once(__DIR__ . '/config/global.php');
 function __autoload($className){
   require_once(__DIR__ . '/classes/' . $className . '.php');
 }
-
+*/
 
 
 $db = Database::getConnection();
-echo "<h1>good</h1>"
-$test = new Test($dbc);
 
 foreach ($_POST as $key => $value) {
   $$key = trim($val);
 }
 
+echo "FirstName" , $firstName , "<br>"
+/*
 $salt = random_bytes(32); //create salt for account
 $saltedPassword = $salt.$password;
 $hash = hash('scrypt',$saltedPassword);
@@ -23,7 +24,7 @@ if($qry->execute()){
   echo "successful";
 }
 else{
-  echo "unsuccessful"
+  echo "unsuccessful";
 }
 //Get the institutionID for the insert into clientAccount
 $incrementID = $qry->insert_id;
@@ -35,5 +36,5 @@ $qry->bind_param("i",$incre);
 $qry->execute();
 $qry->close();
 
-
+*/
  ?>
