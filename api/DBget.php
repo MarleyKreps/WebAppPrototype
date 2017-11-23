@@ -15,11 +15,13 @@ $qry = $db->prepare("SELECT * FROM corstrata.systemAdmin");
 if($qry->execute()){
   echo "Success";
 }
-
-$rowcnt = $qry->num_rows;
-$result = $qry->get_result();
-echo $rowcnt;
-echo "Salt ", $result[0]['salt'], "<br /> Hash ", $result[0]['hash'];
+if($qry->num_rows >= 1){
+  $result = $qry->get_result();
+  echo "Salt ", $result[0]['salt'], "<br /> Hash ", $result[0]['hash'];
+}
+else{
+  echo "<br /> Bad query"
+}
 
 
  ?>
