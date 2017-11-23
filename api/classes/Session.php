@@ -232,7 +232,7 @@ class Session {
       //return true;
     //}
 
-    $qry = $this->$mysqli->prepare("SELECT salt, hash FROM account WHERE emailAddress = ?")
+    $qry = $this->mysqli->prepare("SELECT salt, hash FROM account WHERE emailAddress = ?")
     $qry->bind_param("s",$email);
     $qry->execute();
     $qry->bind_result($dbSalt,$dbHash);
