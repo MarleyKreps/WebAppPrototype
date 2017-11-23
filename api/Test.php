@@ -7,7 +7,7 @@ function __autoload($className){
 
 
 
-$db = Database::getConnection();
+$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 foreach ($_POST as $key => $value) {
   $$key = trim($value);
