@@ -9,6 +9,7 @@ $test = new Test($dbc);
 
 foreach ($_POST as $key => $value) {
   $$key = trim($val);
+  echo $val;
 }
-echo $test->registerAccount($email, $firstName, $lastName, $password);
+
  ?>
