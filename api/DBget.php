@@ -12,7 +12,10 @@ $email = "zrider99zr@gmail.com";
 echo $email;
 
 $qry = $db->prepare("SELECT salt, hash FROM account");
-$qry->execute();
+if($qry->execute()){
+  echo "Success"
+}
+
 $rowcnt = $qry->num_rows;
 $result = $qry->get_result();
 echo $rowcnt;
