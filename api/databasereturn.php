@@ -12,7 +12,7 @@ function __autoload($className){
 }
 
 $email = "zrider99zr@gmail.com"
-$db = Database::getConnection();
+
 echo $email;
 /*
 $qry = $db->prepare("SELECT salt, hash FROM account WHERE emailAddress = ?")
