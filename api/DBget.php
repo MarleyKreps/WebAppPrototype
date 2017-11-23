@@ -11,7 +11,7 @@ $email = "zrider99zr@gmail.com";
 
 echo $email;
 
-$qry = $db->prepare("SELECT * FROM account");
+$qry = $db->prepare("SELECT * FROM corstrata.account");
 if($qry->execute()){
   echo "Success";
 }
