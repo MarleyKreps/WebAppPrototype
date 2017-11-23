@@ -9,9 +9,7 @@ $db = Database::getConnection();
 
 $email = "zrider99zr@gmail.com";
 
-echo $email;
-
-$qry = $db->prepare("SELECT * FROM corstrata.systemAdmin");
+$qry = $db->prepare("SELECT * FROM systemAdmin");
 if($qry->execute()){
   echo "Success";
 }
