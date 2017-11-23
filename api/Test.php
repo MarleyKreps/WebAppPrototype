@@ -38,7 +38,7 @@ $incrementID = $qry->insert_id;
 //If the created account is a client account create a client account
 
 $qry->close();
-$qry = $this->db->prepare("INSERT INTO systemAdmin VALUES(?)");
+$qry = $db->prepare("INSERT INTO systemAdmin VALUES(?)");
 $qry->bind_param("i",$incrementID);
 $qry->execute();
 $qry->close();
