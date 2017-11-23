@@ -1,22 +1,13 @@
 <?php
 
-session_start();
-define('DB_HOST', '165.227.191.245');
-define('DB_USER', 'project');
-define('DB_PASS', 'drallen2001');
-define('DB_NAME', 'corstrata');
-define('SESSION_LENGTH', 60);
-
+require_once(__DIR__ . '/config/global.php');
 function __autoload($className){
   require_once(__DIR__ . '/classes/' . $className . '.php');
 }
 
 
-$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$db = Database::getConnection();
 
-if ($db->connect_error) {
-    echo $db->connect_error;
-}
 
 foreach ($_POST as $key => $value) {
   $$key = trim($value);

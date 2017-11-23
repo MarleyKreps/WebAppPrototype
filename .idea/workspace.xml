@@ -16,7 +16,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="680">
               <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-              <folding />
+              <folding>
+                <marker date="1511412987845" expanded="true" signature="699:779" ph="INSERT INTO account... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -191,7 +193,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-          <folding />
+          <folding>
+            <marker date="1511412987845" expanded="true" signature="699:779" ph="INSERT INTO account... " />
+          </folding>
         </state>
       </provider>
     </entry>
