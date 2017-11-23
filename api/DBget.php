@@ -7,7 +7,7 @@ function __autoload($className){
 
 $db = Database::getConnection();
 */
-$email = "zrider99zr@gmail.com"
+$email = "zrider99zr@gmail.com";
 
 echo $email;
 /*
