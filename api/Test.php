@@ -17,7 +17,7 @@ foreach ($_POST as $key => $value) {
 $salt = random_bytes(32); //create salt for account
 $saltedPassword = $salt.$password;
 $hash = hash('scrypt',$saltedPassword);
-echo $salt , "<br" , $hash;
+echo  "Halt ", $salt , "<br> Hash " , $hash;
 /*
 $qry = $this->db->prepare("INSERT INTO account(emailAddress,firstName,lastName,hash,salt) VALUES(?,?,?,?,?)");
 $qry->bind_param("sssss",$email,$firstName,$lastName,$hash,$salt);
