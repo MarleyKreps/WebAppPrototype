@@ -6,18 +6,19 @@ function __autoload($className){
 
 $db = Database::getConnection();
 $session = new Session($db);
-$testCenter = new TestCenter($db,$session);
-$accountManager = new AccountManager($db,$session);
+
 
 foreach ($_POST as $key => $value) {
-  $$key = trim($val);
+  $$key = trim($value);
 }
 
-$VALID_REQUESTS = array('login','logout');
+$VALID_REQUESTS = array('login','logout', 'register');
 
 $httpXrequested = isset($_SERVER['HTTP_X_REQUESTED_WITH']);
 
 $isAjaxCall = $httpXrequested ? strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' : null;
+
+echo "httpXrequested " , $httpXrequested , "<br />isAjaxCall", $isAjaxCall;
 
 if($httpXrequested && $isAjaxCall && isset($request)){
   $access = true;
