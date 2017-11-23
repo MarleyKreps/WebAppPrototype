@@ -24,7 +24,7 @@ $incrementID = $qry->insert_id;
 
 $qry->close();
 $qry = $this->db->prepare("INSERT INTO systemAdmin VALUES(?)");
-$qry->bind_param("iii",$accountID);
+$qry->bind_param("i",$incrementID);
 $qry->execute();
 $qry->close();
 
