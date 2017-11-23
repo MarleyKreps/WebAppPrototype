@@ -1,6 +1,10 @@
 <html>
 <body>
+Ladadad
 
+
+</body>
+</html>
 <?php ?
 require_once(__DIR__ . '/config/global.php');
 function __autoload($className){
@@ -19,6 +23,3 @@ echo "Salt ", $dbSalt, "<br /> Hash " $dbHash;
 
 
  ?>
-
-</body>
-</html>
