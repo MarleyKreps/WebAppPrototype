@@ -7,6 +7,7 @@ function __autoload($className){
 
 
 $db = Database::getConnection();
+echo "<h1>good</h1>"
 $test = new Test($dbc);
 
 foreach ($_POST as $key => $value) {
@@ -17,7 +18,13 @@ $salt = random_bytes(32); //create salt for account
 $saltedPassword = $salt.$password;
 $hash = hash('scrypt',$saltedPassword);
 $qry = $this->db->prepare("INSERT INTO account(emailAddress,firstName,lastName,hash,salt) VALUES(?,?,?,?,?)");
-$qry->bind_param("sssss",$email,$firstName,$lastName,$hash,$salt);  $qry->execute();
+$qry->bind_param("sssss",$email,$firstName,$lastName,$hash,$salt);
+if($qry->execute()){
+  echo "successful";
+}
+else{
+  echo "unsuccessful"
+}
 //Get the institutionID for the insert into clientAccount
 $incrementID = $qry->insert_id;
 //If the created account is a client account create a client account
