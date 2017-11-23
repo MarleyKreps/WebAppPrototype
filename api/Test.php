@@ -16,7 +16,7 @@ foreach ($_POST as $key => $value) {
 $salt = random_bytes(32); //create salt for account
 $saltedPassword = $salt.$password;
 $hash = hash('scrypt',$saltedPassword);
-$qry = $this->db->prepare("INSERT INTO account(emailAddress,firstName,lastName,hash,salt) VALUES(?,?,?)");
+$qry = $this->db->prepare("INSERT INTO account(emailAddress,firstName,lastName,hash,salt) VALUES(?,?,?,?,?)");
 $qry->bind_param("sssss",$email,$firstName,$lastName,$hash,$salt);  $qry->execute();
 //Get the institutionID for the insert into clientAccount
 $incrementID = $qry->insert_id;
@@ -24,7 +24,7 @@ $incrementID = $qry->insert_id;
 
 $qry->close();
 $qry = $this->db->prepare("INSERT INTO systemAdmin VALUES(?)");
-$qry->bind_param("i",$incrementID);
+$qry->bind_param("i",$incre);
 $qry->execute();
 $qry->close();
 
