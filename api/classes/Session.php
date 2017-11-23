@@ -43,7 +43,7 @@ class Session {
 
 
 
-  public function registerAccount($email, $password, $isClient, $isAdmin, $institutionID){
+  public function registerAccount($email, $firstName, $lastName, $password, $isClient, $isAdmin, $institutionID){
     //TODO sanitize inputs; ensure email is an email, ensure password doesn't have weird characters\
     //TODO solve institution picking problem (see TODO 2.2.1.3)
 
@@ -51,8 +51,8 @@ class Session {
     $salt = random_bytes(32); //create salt for account
     $saltedPassword = $salt.$password;
     $hash = hash('scrypt',$saltedPassword);
-    $qry = $this->mysqli->prepare("INSERT INTO account(emailAddress,hash,salt) VALUES(?,?,?)");
-    $qry->bind_param("sss",$email,$hash,$salt);
+    $qry = $this->mysqli->prepare("INSERT INTO account(emailAddress,firstName,lastName,hash,salt) VALUES(?,?,?)");
+    $qry->bind_param("sssss",$email,$firstName,$lastName,$hash,$salt);
     $qry->execute();
     //Get the institutionID for the insert into clientAccount
     $incrementID = $qry->insert_id;
@@ -113,7 +113,7 @@ class Session {
     $qry->execute();
     $qry->close();
   }
-  
+
   public function getAccountType($uid){
     //Select acountID FROM account
     $qry = $this->mysqli->prepare("SELECT accountID from account where accountID =  ?");
