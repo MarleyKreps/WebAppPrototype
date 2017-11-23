@@ -22,7 +22,6 @@ $qry->bind_param("sssss",$email,$firstName,$lastName,$hash,$salt);  $qry->execut
 $incrementID = $qry->insert_id;
 //If the created account is a client account create a client account
 
-$this-registerSystemAccount($incrementID);
 $qry->close();
 $qry = $this->db->prepare("INSERT INTO systemAdmin VALUES(?)");
 $qry->bind_param("iii",$accountID);
