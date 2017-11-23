@@ -10,10 +10,10 @@ function __autoload($className){
 //$db = Database::getConnection();
 
 foreach ($_POST as $key => $value) {
-  $$key = trim($val);
+  $$key = trim($value);
 }
 
-echo "FirstName" , $firstName , "<br>"
+echo $firstName
 /*
 $salt = random_bytes(32); //create salt for account
 $saltedPassword = $salt.$password;
