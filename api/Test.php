@@ -1,11 +1,14 @@
-<html>
-<body>
+<?php
+require_once(__DIR__ . '/config/global.php');
+function __autoload($className){
+  require_once(__DIR__ . '/classes/' . $className . '.php');
+}
 
-First Name: <?php echo $_POST["firstName"]; ?><br>
-Last Name: <?php echo $_POST["lastName"]; ?><br>
-Email: <?php echo $_POST["email"]; ?><br>
-Password: <?php echo $_POST["password"]; ?><br>
-isClient: <?php echo $_POST["isClient"]; ?><br>
-isAdmin: <?php echo $_POST["isAdmin"]; ?><br>
-</body>
-</html>
+$db = Database::getConnection();
+$test = new Test($dbc);
+
+foreach ($_POST as $key => $value) {
+  $$key = trim($val);
+}
+echo $test->registerAccount($email, $firstName, $lastName, $password);
+ ?>
