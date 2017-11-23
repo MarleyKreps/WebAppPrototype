@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styling/home.css'
 { /* this will only be here while we are testing all the pages, after page testing is done it will be removed and navigation will only be done through the webpage */}
 // The Header creates links that can be used to navigate between routes.
 const header = () => (
@@ -20,7 +21,9 @@ const header = () => (
                 <li><Link to='/nav'>Nav Bar</Link></li>
                 <li><Link to='/bates'>bates</Link></li>
                 <li><Link to='/linegraph'>linegraph</Link></li>
-
+                <li><Link to='/WagnerResults'>WagnerResults</Link></li>
+                <li><Link to='/MNAResults'>MNAResults</Link></li>
+                
           </ul>
         </nav>
     </header>

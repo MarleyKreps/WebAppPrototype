@@ -5,7 +5,6 @@ const bates = () => (
     
 <form id="bate" action="#" method="POST" encType="multipart/form-data">
 
-
   <div class="row">
     <label for="name">Size</label>
     <br></br>

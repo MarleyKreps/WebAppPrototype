@@ -12,6 +12,8 @@ import nav from './nav'
 import createPage from './createPage'
 import bates from './bates'
 import linegraph from './linegraph'
+import WagnerResults from './wagnerScaleResults'
+import MNAResults from './MNAResults'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -34,6 +36,8 @@ const main = () => (
             <Route path='/bates' component={bates} />
             <Route path='/linegraph' component={linegraph}/>
             <Route path='/nav' component={nav}/>
+            <Route path='/WagnerResults' component={WagnerResults} />
+            <Route path='/MNAResults' component={MNAResults} />
         </Switch>
     </main>
 )
