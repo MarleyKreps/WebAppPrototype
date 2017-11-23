@@ -7,7 +7,7 @@ function __autoload($className){
 */
 
 
-$db = Database::getConnection();
+//$db = Database::getConnection();
 
 foreach ($_POST as $key => $value) {
   $$key = trim($val);
