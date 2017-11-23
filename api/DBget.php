@@ -20,7 +20,7 @@ if($qry->num_rows >= 1){
   echo "Salt ", $result[0]['salt'], "<br /> Hash ", $result[0]['hash'];
 }
 else{
-  echo "<br /> Bad query"
+  echo "<br /> Bad query";
 }
 
 
