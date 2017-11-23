@@ -14,9 +14,13 @@ foreach ($_POST as $key => $value) {
 }
 
 
-$salt = random_bytes(32); //create salt for account
-$saltedPassword = $salt.$password;
-$hash = hash('scrypt',$saltedPassword);
+
+$salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+$options = [
+    'cost' => 11,
+    'salt' => $salt,
+];
+$hash = password_hash($password, PASSWORD_BCRYPT, $options);
 echo  "Halt ", $salt , "<br> Hash " , $hash;
 /*
 $qry = $this->db->prepare("INSERT INTO account(emailAddress,firstName,lastName,hash,salt) VALUES(?,?,?,?,?)");
