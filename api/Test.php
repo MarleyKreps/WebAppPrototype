@@ -32,7 +32,7 @@ $options = [
 $hash = password_hash($password, PASSWORD_BCRYPT, $options);
 echo  "Halt ", $salt , "<br> Hash " , $hash;
 
-$qry = $this->db->prepare("INSERT INTO account(emailAddress,firstName,lastName,hash,salt) VALUES(?,?,?,?,?)");
+$qry = $db->prepare("INSERT INTO account(emailAddress,firstName,lastName,hash,salt) VALUES(?,?,?,?,?)");
 $qry->bind_param("sssss",$email,$firstName,$lastName,$hash,$salt);
 if($qry->execute()){
   echo "First query was successful";
