@@ -9,16 +9,16 @@ $db = Database::getConnection();
 
 $email = "zrider99zr@gmail.com";
 
-$qry = $db->prepare("SELECT salt, hash FROM account");
-if($qry->execute()){
-  echo "Success";
-}
-if($qry->num_rows >= 1){
-  $result = $qry->get_result();
-  echo "Salt ", $result[0]['salt'], "<br /> Hash ", $result[0]['hash'];
-}
-else{
-  echo "<br /> Bad query";
+$sql = "SELECT salt, hash FROM Account";
+$result = $db->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "salt: " . $row["salt"]. " - hash: " . $row["hash"]. "<br>";
+    }
+} else {
+    echo "0 results";
 }
 
 
