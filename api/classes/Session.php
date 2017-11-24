@@ -398,7 +398,7 @@ class Session {
   }
   //TODO implement a function that takes all of the data from a pressure wound test and inserts it into the database
   //TODO Call create test to get a test id and insert it into the test table
-  public function createPressureWoundTest($patientID, $size, $depth, $edges, ){
+  public function createPressureWoundTest($patientID, $size, $depth, $edges){ //definitely not all... more params later
     //Note: just shoved all the stuff into the parameters individually. There's got to be a better way... maybe an array?
     //TODO make 'clamps' to ensure inputs are within numerical bounds
     //BASIC SKELETON --- PSEUDO-CODE RIGHT NOW
@@ -407,11 +407,11 @@ class Session {
     //calculate PUSH/Bates-Jensen/Sussman Scores
     $PUSHScore = getPUSHScore(STUFF);
     $BatesScore = getBatesJensenScore(STUFF);
-    $SussmanScore = getSussmanScore(STUFF);
+    $SussmanScore = getSussmanScore(STUFF); //will probably return an array of 10 tinyint/boolean
 
     //dump test results and raw data into table
-    $qry = $this->$mysqli->prepare("INSERT INTO pressureWoundTest" VALUES(shiiiit));
-    $qry->bind_param("shiiiit",shiiiiiiiiiiiit);
+    $qry = $this->$mysqli->prepare("INSERT INTO pressureWoundTest" VALUES(crapton));
+    $qry->bind_param("shiiiit",crapton);
     $qry->execute();
 
     //and that's it I think? maybe return something? array of 3 scores?
@@ -540,7 +540,7 @@ class Session {
   }
   //TODO implement a function that takes the information from a pressure wound test and spits out a sussman score
   function getSussmanScore(){
-    
+
   }
   public function getRecentTests($patientID){
     $datetime = date('Y-m-d H:i:s', strtotime('-2 months'));
