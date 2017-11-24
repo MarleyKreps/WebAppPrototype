@@ -1,13 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\api",
-    "\\api\\classes",
-    "\\sql",
     "\\webapp",
     "\\webapp\\src",
-    "\\webapp\\src\\pages"
+    "\\webapp\\src\\pages",
+    "\\webapp\\src\\styling"
   ],
-  "SelectedNode": "\\webapp\\src\\pages\\createAccount.js",
+  "SelectedNode": "\\webapp\\src\\pages\\wagnerScaleResults.js",
   "PreviewInSolutionExplorer": false
 }
