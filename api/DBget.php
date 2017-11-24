@@ -9,7 +9,7 @@ $db = Database::getConnection();
 
 $email = "zrider99zr@gmail.com";
 
-$sql = "SELECT salt, hash FROM account";
+$sql = "SELECT salt, hash FROM account WHERE email = " . $email;
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
