@@ -29,7 +29,7 @@ if ($qry = $db->prepare("SELECT hash, salt FROM account WHERE email=?")) {
     $qry->close();
 }
 else{
-  echo "query prepare uncsuccessful";
+  echo "query prepare uncsuccessful:(" . $db->errno . ") " . $db->error;
 }
 
 
