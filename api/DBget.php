@@ -9,13 +9,14 @@ $db = Database::getConnection();
 
 $email = "zrider99zr@gmail.com";
 
-$qry = $db->prepare("SELECT * FROM systemAdmin");
-if($qry->execute()){
-  echo "Success";
-}
+$sql = "SELECT * FROM account";
+$qry = $db->query($sql);
+
 if($qry->num_rows >= 1){
-  $result = $qry->get_result();
-  echo "Salt ", $result[0]['salt'], "<br /> Hash ", $result[0]['hash'];
+  while($row = $result->fetch_assoc()) {
+        echo "Salt ", $row['salt'], "<br /> Hash ", $row['hash'];
+  }
+
 }
 else{
   echo "<br /> Bad query";
