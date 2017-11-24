@@ -11,9 +11,7 @@ $email = "zrider99zr@gmail.com";
 
 $sql = "SELECT firstName FROM account";
 $qry = $db->query($sql);
-if($qry->execute()){
-  echo "Success";
-}
+
 if($qry->num_rows >= 1){
   $result = $qry->get_result();
   echo "Salt ", $result[0]['firstName'];
