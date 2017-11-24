@@ -113,7 +113,7 @@ class Session {
     $qry->execute();
     $qry->close();
   }
-  
+
   public function getAccountType($uid){
     //Select acountID FROM account
     $qry = $this->mysqli->prepare("SELECT accountID from account where accountID =  ?");
@@ -124,8 +124,8 @@ class Session {
       //Pull the accounts is admin
       $qry = $this->mysqli->prepare("SELECT isAdmin from account where accountID =  ?");
       $qry->bind_param("i",$uid);
-      $qry->bind_result($isAdmin);
       $qry->execute();
+      $qry->bind_result($isAdmin);
       $qry->store_result();
       //If that exists
       if($qry->num_rows == 1){
@@ -179,8 +179,8 @@ class Session {
     $sid = htmlentities(mysqli_real_escape_string(this->mysqli),$sid);
     $qry = $this->mysqli->prepare("SELECT timeCreated, accountID FROM sessions WHERE sessionID = ?");
     $qry->bind_param("s",$sid);
-    $qry->bind_result($timestamp,$uid);
     $qry->execute();
+    $qry->bind_result($timestamp,$uid);
     $qry->store_result();
     if($qry->num_rows >=1){
       while($qry->fetch()){
@@ -237,7 +237,7 @@ class Session {
     $qry->execute();
     $qry->bind_result($dbSalt,$dbHash);
     $qry->store_result();
-
+    $qry->fetch();
     $saltedInput = $dbSalt.$passwordInput;
     $hashedInput = hash('scrypt',$saltedInput);
     if($hashedInput == $dbHash){
