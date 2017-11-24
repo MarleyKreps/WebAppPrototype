@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import 'font-awesome/css/font-awesome.min.css'
 import { Link, Redirect, Route } from 'react-router-dom'
+import { PostData } from './postData'
 
 //import styled from 'styled-components';
 
@@ -13,15 +14,27 @@ class loginPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: props.username,
+            email: "",
             error: props.error,
             info: props.info,
-            password: ''
+            password: "",
         };
     }
 
-    checkInput() {
-        <Redirect to="/" />
+    setEmail(e) {
+        this.setState({ email: e.target.value });
+    }
+
+    setPass(e) {
+        this.setState({ password: e.target.value });
+    }
+
+    checkInput(e) {
+        //loggin in and passing it state, will need to trim or extend the method to show more/less state variables
+        PostData("test", this.state).then((results) => {
+            let responseJSON = results;
+            console.log(responseJSON);
+        });
     }
 
     render() {
@@ -35,8 +48,8 @@ class loginPage extends Component {
                         name="uname"
                         id="username"
                         value={this.state.email}
-                        onInput={this.changeUsername}
                         placeholder="email@gmail.com"
+                        onInput={this.setEmail.bind(this)}
                         required
                         autoFocus
                     />
@@ -45,14 +58,12 @@ class loginPage extends Component {
                         <InputField
                             type="password"
                             name="password"
-                            onInput={this.changePassword}
                             placeholder="Password"
+                            onInput={this.setPass.bind(this)}
                             required
                         />
 
-                        <SubmitButton onClick={this.checkInput}>
-                            <i className="fa fa-sign-in fa-lg" />
-                            <Link to='./'> </Link>
+                        <SubmitButton onClick={this.checkInput.bind(this)}> 
                         </SubmitButton>
 
                     </InputGroup>
