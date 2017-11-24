@@ -399,6 +399,22 @@ class Session {
 
   }
   public function getRecentTests($patientID){
+    $datetime = date('Y-m-d H:i:s', strtotime('-2 months'));
+    $qry = $this->mysqli->prepare("SELECT testID, accountID, dateTaken FROM test WHERE patientID = ? AND dateTaken > ?");
+    $qry->bind_param("is",$patientID,$datetime);
+    $qry->execute();
+    $qry->bind_result($testID, $accountID, $dateTaken);
+
+  }
+  function getEmployeeName($accountID){
+    $qry = $this->mysqli->prepare("SELECT firstName, lastName FROM account WHERE accountID = ?");
+    $qry->bind_param("i",$accountID);
+    $qry->execute();
+    $qry->bind_result($firstName, $lastName);
+    $qry->fetch();
+    return $firstName . " " . $lastName;
+  }
+  function getTestType($testID){
 
   }
   public function patientSearch($searchInput){
