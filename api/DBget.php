@@ -28,6 +28,9 @@ if ($qry = $db->prepare("SELECT hash, salt FROM account WHERE email=?")) {
     /* close statement */
     $stmt->close();
 }
+else{
+  echo "query prepare uncsuccessful";
+}
 
 
  ?>
