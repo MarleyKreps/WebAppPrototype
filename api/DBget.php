@@ -15,18 +15,18 @@ if ($qry = $db->prepare("SELECT hash, salt FROM account WHERE email=?")) {
     $qry->bind_param("s", $email);
 
     /* execute query */
-    $stmt->execute();
+    $qry->execute();
 
     /* bind result variables */
-    $stmt->bind_result($hash, $salt);
+    $qry->bind_result($hash, $salt);
 
     /* fetch value */
-    $stmt->fetch();
+    $qry->fetch();
 
     echo "salt: " . $salt . " - hash: " . $hash . "<br>";
 
     /* close statement */
-    $stmt->close();
+    $qry->close();
 }
 else{
   echo "query prepare uncsuccessful";
