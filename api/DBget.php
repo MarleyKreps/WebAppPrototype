@@ -9,7 +9,7 @@ $db = Database::getConnection();
 
 $email = "zrider99zr@gmail.com";
 
-if ($qry = $db->prepare("SELECT hash, salt FROM account WHERE email=?")) {
+if ($qry = $db->prepare("SELECT hash, salt FROM account WHERE emailAddress=?")) {
 
     /* bind parameters for markers */
     $qry->bind_param("s", $email);
