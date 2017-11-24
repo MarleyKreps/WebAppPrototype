@@ -32,7 +32,7 @@ class Session {
   public function registerInstitution($name, $address, $state, $city, $zipCode, $phoneNumber){
     $uid = getUID($this->sid);
     if(getAccountType($uid) == 2){
-      $qry = $this->$mysqli->prepare("INSERT INTO institution(name,address,state,city,zipCode,phoneNumber) VALUES(?,?,?,?,?,?)");
+      $qry = $this->mysqli->prepare("INSERT INTO institution(name,address,state,city,zipCode,phoneNumber) VALUES(?,?,?,?,?,?)");
       $qry->bind_param("ssssii",$name, $address, $state, $city, $zipCode, $phoneNumber);
       $qry->execute();
     }
@@ -43,16 +43,17 @@ class Session {
 
 
 
-  public function registerAccount($email, $password, $isClient, $isAdmin, $institutionID){
+  public function registerAccount($email, $firstName, $lastName, $password, $isClient, $isAdmin, $institutionID){
     //TODO sanitize inputs; ensure email is an email, ensure password doesn't have weird characters\
     //TODO solve institution picking problem (see TODO 2.2.1.3)
-
-
-    $salt = random_bytes(32); //create salt for account
-    $saltedPassword = $salt.$password;
-    $hash = hash('scrypt',$saltedPassword);
-    $qry = $this->mysqli->prepare("INSERT INTO account(emailAddress,hash,salt) VALUES(?,?,?)");
-    $qry->bind_param("sss",$email,$hash,$salt);
+    $salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+    $options = [
+        'cost' => 11,
+        'salt' => $salt,
+    ];
+    $hash = password_hash($password, PASSWORD_BCRYPT, $options);
+    $qry = $this->mysqli->prepare("INSERT INTO account(emailAddress,firstName,lastName,hash,salt) VALUES(?,?,?,?,?)");
+    $qry->bind_param("sssss",$email,$firstName,$lastName,$hash,$salt);
     $qry->execute();
     //Get the institutionID for the insert into clientAccount
     $incrementID = $qry->insert_id;
@@ -87,6 +88,7 @@ class Session {
     $qry->close();
     return 0;
   }
+
   //Returns the institutionID for this user
   function getInstitutionID(){
     $uid = getUID($this->sid);
@@ -223,55 +225,34 @@ class Session {
       $userid = $this->getUID($email);
       if($this->handleSID($userid)){
         return 1;
-
       }
     }
     return 0;
   }
 
-  //Validates the login credentials of the user
-  //TODO verify login with hash and salt *NEEDS TESTING*
   function validateLogin($email, $passwordInput){
-    //TODO add password hash functionallity *NEEDS TESTING*
     $email = htmlspecialchars(mysqli_real_escape_string($this->mysqli, $email));
-    //$qry = $this->$mysqli->prepare("SELECT * FROM account WHERE emailAddress = ? && password = ?");
-    //$qry->bind_param("ss",$email,$passwordInput);
-    //$qry->execute();
-    //$users = $qry->get_result();
-    //$qry->close();
-    //if(count($users) < 1){
-      //return false;
-    //}
-    //else{
-      //return true;
-    //}
 
-    $qry = $this->$mysqli->prepare("SELECT salt, hash FROM account WHERE emailAddress = ?")
+    $qry = $this->mysqli->prepare("SELECT salt, hash FROM account WHERE emailAddress = ?");
     $qry->bind_param("s",$email);
     $qry->execute();
     $qry->bind_result($dbSalt,$dbHash);
     $qry->store_result();
+
     $qry->fetch();
-    $saltedInput = $dbSalt.$passwordInput;
-    $hashedInput = hash('scrypt',$saltedInput);
-    if($hashedInput == $dbHash){
+    $options = [
+        'cost' => 11,
+        'salt' => $dbsalt,
+    ];
+    $hash = password_hash($passwordInput, PASSWORD_BCRYPT, $options);
+    $qry->close();
+    if($hash == $dbHash){
       return true; //hashes match, passwords match
     }
     else {
       return false;
     }
   }
-  //Gets the salt based off of an email
-  function getSalt($email){
-    $qry = $this->$mysqli->prepare("SELECT salt FROM account WHERE emailAddress = ?");
-    $qry->bind_param("s",$email);
-    $qry->execute();
-
-    $salt = $query->get_result();
-    $qry->close();
-    return return isset($result[0]['salt']) ? $result[0]['salt'] : -1;
-  }
-
 
   //Prevents more than one session per user
   public function handleSID($userID){
@@ -321,7 +302,7 @@ class Session {
     $time = time();
     $timestamp = $time + 60 * SESSION_LENGTH;
 
-    $qry = $this->$mysqli->prepare("INSERT INTO sessions (sessionID, accountID, timeCreated) VALUES (?, ?, ?)");
+    $qry = $this->mysqli->prepare("INSERT INTO sessions (sessionID, accountID, timeCreated) VALUES (?, ?, ?)");
     $qry->bind_param("iii",$sid,$userid,$timestamp);
 
     if ($qry->execute()) {
@@ -359,7 +340,7 @@ class Session {
 
   //Generates a random ID with a specified length
   function generateRandID($length) {
-    return md5($this->generateRandStr($length);
+    return md5($this->generateRandStr($length));
   }
 
   //Generates a random string with a length
@@ -396,10 +377,14 @@ class Session {
     $testID = $this->createTest($patientID);
     if($testID == -1){
       echo "Test Failed to insert into the database";
+      return 0;
     }
     else{
       $qry = $this->mysqli->prepare("INSERT INTO test (testID, grade) VALUES (?, ?)");
-      $qry->bind_param("ii",$testID);
+      $qry->bind_param("ii",$testID, $grade);
+      $qry->execute();
+      $qry->close();
+      return 1;
     }
   }
   public function createSemmesTest(){
@@ -558,6 +543,22 @@ class Session {
     
   }
   public function getRecentTests($patientID){
+    $datetime = date('Y-m-d H:i:s', strtotime('-2 months'));
+    $qry = $this->mysqli->prepare("SELECT testID, accountID, dateTaken FROM test WHERE patientID = ? AND dateTaken > ?");
+    $qry->bind_param("is",$patientID,$datetime);
+    $qry->execute();
+    $qry->bind_result($testID, $accountID, $dateTaken);
+
+  }
+  function getEmployeeName($accountID){
+    $qry = $this->mysqli->prepare("SELECT firstName, lastName FROM account WHERE accountID = ?");
+    $qry->bind_param("i",$accountID);
+    $qry->execute();
+    $qry->bind_result($firstName, $lastName);
+    $qry->fetch();
+    return $firstName . " " . $lastName;
+  }
+  function getTestType($testID){
 
   }
   public function patientSearch($searchInput){
