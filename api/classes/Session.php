@@ -156,19 +156,33 @@ class Session {
     return -1;
 
   }
-  //TODO implement a change password
+
   public function changePassword($oldPassword, $newPassword){
-    //TODO You need to validate the old password
     if($oldPassword != $newPassword){
-      $newSalt = random_bytes(32); //new password, new salt
-      $saltedPassword = $newSalt.$newPassword;
-      $hash = hash('scrypt',$newPassword);
+      //check old password to see if it is valid
       $uid = getUID($this->sid);
-      $qry = $this->mysqli->prepare("UPDATE account SET hash = ?, salt = ? WHERE accountID = ?")
-      $qry->bind_param("ssi",$hash,$saltedPassword,$uid);
+      $qry = $this->mysqli->prepare("SELECT hash, salt FROM account WHERE accountID = ?");
+      $qry->bind_param("i",$uid);
       $qry->execute();
+      $qry->bind_result($currHash, $currSalt);
       $qry->close();
-      return true;
+      $saltedPassword = $currSalt.$oldPassword;
+      $checkHash = hash('scrypt',$saltedPassword);
+      if($currHash == $checkHash){
+        //update new salt and password in account
+        $newSalt = random_bytes(32); //new password, new salt
+        $saltedPassword = $newSalt.$newPassword;
+        $hash = hash('scrypt',$saltedPassword);
+        $uid = getUID($this->sid);
+        $qry2 = $this->mysqli->prepare("UPDATE account SET hash = ?, salt = ? WHERE accountID = ?")
+        $qry2->bind_param("ssi",$hash,$saltedPassword,$uid);
+        $qry2->execute();
+        $qry2->close();
+        return true;
+      }
+      else{
+        return false;
+      }
     }
     else {
       return false;
@@ -399,20 +413,149 @@ class Session {
   }
   //TODO implement a function that takes all of the data from a pressure wound test and inserts it into the database
   //TODO Call create test to get a test id and insert it into the test table
-  public function createPressureWoundTest(){
+  public function createPressureWoundTest($patientID, $size, $depth, $edges, ){
+    //Note: just shoved all the stuff into the parameters individually. There's got to be a better way... maybe an array?
+    //TODO make 'clamps' to ensure inputs are within numerical bounds
+    //BASIC SKELETON --- PSEUDO-CODE RIGHT NOW
+    $testID = $this->createTest($patientID); //get testID
 
+    //calculate PUSH/Bates-Jensen/Sussman Scores
+    $PUSHScore = getPUSHScore(STUFF);
+    $BatesScore = getBatesJensenScore(STUFF);
+    $SussmanScore = getSussmanScore(STUFF);
+
+    //dump test results and raw data into table
+    $qry = $this->$mysqli->prepare("INSERT INTO pressureWoundTest" VALUES(shiiiit));
+    $qry->bind_param("shiiiit",shiiiiiiiiiiiit);
+    $qry->execute();
+
+    //and that's it I think? maybe return something? array of 3 scores?
   }
   //TODO implement a function that takes the information from a pressure wound test and spits out a push score
-  function getPUSHScore(){
-
+  function getPUSHScore($size, $exudate, $necTissue, $granTissue, $epith){ //Note: input Bates-Jensen values here: approximation to PUSH score is done in this function
+    //Sub-Scores: Size, Exudate Amount, Tissue Type
+    //Size
+    if($size > 0){
+      $sizeSS = 1;
+      if($size >= 0.3){
+        $sizeSS = 2;
+        if($size >= 0.7){
+          $sizeSS = 3;
+          if($size >= 1.1){
+            $sizeSS = 4;
+            if($size >= 2.1){
+              $sizeSS = 5;
+              if($size >= 3.1){
+                $sizeSS = 6;
+                if($size >= 4.1){
+                  $sizeSS = 7;
+                  if($size >= 8.1){
+                    $sizeSS = 8;
+                    if($size >= 12.1){
+                      $sizeSS = 9;
+                      if($size >= 24){
+                        $sizeSS = 10;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    else{
+      $sizeSS = 0;
+    }
+    //Exudate Amount
+    if($exudate > 1){
+      $exudateSS = 1;
+      if($exudate > 3){
+        $exudateSS = 2;
+        if($exudate > 4){
+          $exudateSS = 3;
+        }
+      }
+    }
+    else{
+      $exudateSS = 0;
+    }
+    //Tissue Type
+    if($epith == 1){
+      $tissueSS = 0;
+    }
+    else if($epith > 1 && $granTissue == 1){
+      $tissueSS = 1;
+    }
+    else if($granTissue > 1){
+      $tissueSS = 2;
+    }
+    if($necTissue == 2 || $necTissue == 3){
+      $tissueSS = 3;
+    }
+    else if($necTissue == 4 || $necTissue == 5){
+      $tissueSS = 4;
+    }
+    //Add sub-scores
+    $totalScore = $sizeSS + $exudateSS + $tissueSS;
+    return $totalScore;
   }
   //TODO implement a function that takes the information from a pressure wound test and spits out a bates jensen score
-  function getBatesJensenScore(){
+  function getBatesJensenScore($size, $depth, $edges, $undermining, $necType, $necAmount, $exudateType, $exudateAmount, $skinColorAround, $peripheralEdema, $peripheralInduration, $granTissue, $epith){
+    //Sub-Scores: Size, Depth, Edges, Undermining, Necrotic Tissue Type, Necrotic Tissue Amount, Exudate Type, Exudate Amount,
+                //Skin Color Surrounding Wound, Peripheral Tissue Edema, Peripheral Tissue Induration, Granulation Tissue, Epithelialization
+    //Size
+    if($size > 0){
+      $sizeSS = 1;
+      if($size >= 4){
+        $sizeSS = 2;
+        if($size >= 16.1){
+          $sizeSS = 3;
+          if($size >= 36.1){
+            $sizeSS = 4;
+            if($size >= 80){
+              $sizeSS = 5;
+            }
+          }
+        }
+      }
+    }
+    else{
+      $sizeSS = 0;
+    }
+    //Actually, I think the rest of the inputs can be pushed straight to the DB. No extra processing required. Below sections might not be needed.
+
+
+
+    //Depth
+
+    //Edges
+
+    //Undermining
+
+    //Necrotic Tissue Type
+
+    //Necrotic Tissue Amount
+
+    //Exudate Type
+
+    //Exudate Amount
+
+    //Skin Color Surrounding Wound
+
+    //Peripheral Tissue Edema
+
+    //Peripheral Tissue Induration
+
+    //Granulation Tissue
+
+    //Epithelialization
 
   }
   //TODO implement a function that takes the information from a pressure wound test and spits out a sussman score
   function getSussmanScore(){
-
+    
   }
   public function getRecentTests($patientID){
 
