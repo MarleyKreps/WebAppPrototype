@@ -9,16 +9,24 @@ $db = Database::getConnection();
 
 $email = "zrider99zr@gmail.com";
 
-$sql = "SELECT salt, hash FROM account WHERE email='" . $email . "'";
-$result = $db->query($sql);
+if ($qry = $db->prepare("SELECT hash, salt FROM account WHERE email=?")) {
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "salt: " . $row["salt"]. " - hash: " . $row["hash"]. "<br>";
-    }
-} else {
-    echo "0 results";
+    /* bind parameters for markers */
+    $qry->bind_param("s", $email);
+
+    /* execute query */
+    $stmt->execute();
+
+    /* bind result variables */
+    $stmt->bind_result($hash, $salt);
+
+    /* fetch value */
+    $stmt->fetch();
+
+    echo "salt: " . $salt . " - hash: " . $hash . "<br>";
+
+    /* close statement */
+    $stmt->close();
 }
 
 
