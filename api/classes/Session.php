@@ -405,7 +405,15 @@ class Session {
     $qry->bind_param("is",$patientID,$datetime);
     $qry->execute();
     $qry->bind_result($testID, $accountID, $dateTaken);
-
+    $array = array();
+    $i = 0;
+    while($qry->fetch()){
+      $array[$i]['dateTaken'] = $dateTaken;
+      $array[$i]['employeeName'] = getEmployeeName($accountID);
+      $array[$i]['testType'] = getTestType($testID);
+      $i++;
+    }
+    return json_encode($array);
   }
   function getEmployeeName($accountID){
     $qry = $this->mysqli->prepare("SELECT firstName, lastName FROM account WHERE accountID = ?");
@@ -416,10 +424,55 @@ class Session {
     return $firstName . " " . $lastName;
   }
   function getTestType($testID){
-
+    $qry = $this->mysqli->prepare("SELECT * FROM pressureWoundTest WHERE testID = ?");
+    $qry->bind_param("i",$testID);
+    $qry->execute();
+    if($qry->num_rows > 0){
+      return "Pressure Wound";
+    }
+    else{
+      $qry = $this->mysqli->prepare("SELECT * FROM semmesTest WHERE testID = ?");
+      $qry->bind_param("i",$testID);
+      $qry->execute();
+      if($qry->num_rows > 0){
+        return "Semmes Weinstein Monophiliment";
+      }
+      else{
+        $qry = $this->mysqli->prepare("SELECT * FROM wagnerTest WHERE testID = ?");
+        $qry->bind_param("i",$testID);
+        $qry->execute();
+        if($qry->num_rows > 0){
+          return "Wagner";
+        }
+        else{
+          $qry = $this->mysqli->prepare("SELECT * FROM miniNutritionalTest WHERE testID = ?");
+          $qry->bind_param("i",$testID);
+          $qry->execute();
+          if($qry->num_rows > 0){
+            return "Mini-Nutritional";
+          }
+          else{
+            return "Test Type not found";
+          }
+        }
+      }
+    }
   }
+  //Function that searches through the patient table given a search input
   public function patientSearch($searchInput){
-
+    //TODO sanitize search input to make sure no sql injections
+    $qry = $this->mysqli->prepare("SELECT patientID, firstName, lastName FROM patient WHERE lastName = %?%");
+    $qry->bind_param("s",$searchInput);
+    $qry->execute();
+    $qry->bind_result($patientID,$firstName,$lastName);
+    $array = array();
+    $i = 0;
+    while($qry->fetch()){
+      $array[$i]['patientID'] = $patientID;
+      $array[$i]['name'] = $firstName . " " . $lastName;
+      $i++;
+    }
+    return json_encode($array);
   }
   public function getPatientData($patientID){
 

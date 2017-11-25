@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1f370f26-595c-4921-98d1-ac20442fa5c5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/classes/Session.php" afterPath="$PROJECT_DIR$/api/classes/Session.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +19,8 @@
             <state relative-caret-position="527">
               <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
               <folding>
-                <marker date="1511543870368" expanded="true" signature="485:565" ph="INSERT INTO account... " />
-                <marker date="1511543870368" expanded="true" signature="941:974" ph="INSERT INTO systemAdmin... " />
+                <marker date="1511547609082" expanded="true" signature="485:565" ph="INSERT INTO account... " />
+                <marker date="1511547609082" expanded="true" signature="941:974" ph="INSERT INTO systemAdmin... " />
               </folding>
             </state>
           </provider>
@@ -30,30 +29,30 @@
       <file leaf-file-name="Session.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/classes/Session.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+            <state relative-caret-position="876">
+              <caret line="223" column="20" lean-forward="true" selection-start-line="223" selection-start-column="20" selection-end-line="223" selection-end-column="20" />
               <folding>
-                <marker date="1511546636522" expanded="true" signature="991:1079" ph="INSERT INTO institution... " />
-                <marker date="1511546636522" expanded="true" signature="1783:1863" ph="INSERT INTO account... " />
-                <marker date="1511546636522" expanded="true" signature="3075:3135" ph="SELECT insti... clientAccount" />
-                <marker date="1511546636522" expanded="true" signature="3413:3446" ph="INSERT INTO systemAdmin... " />
-                <marker date="1511546636522" expanded="true" signature="3676:3715" ph="INSERT INTO clientAccount... " />
-                <marker date="1511546636522" expanded="true" signature="3938:3988" ph="SELECT accou... account" />
-                <marker date="1511546636522" expanded="true" signature="4165:4213" ph="SELECT isAdm... account" />
-                <marker date="1511546636522" expanded="true" signature="5448:5505" ph="UPDATE accou... " />
-                <marker date="1511546636522" expanded="true" signature="5824:5887" ph="SELECT timeC... sessions" />
-                <marker date="1511546636522" expanded="true" signature="6851:6904" ph="SELECT salt,... account" />
-                <marker date="1511546636522" expanded="true" signature="7887:7929" ph="SELECT * fro... sessions" />
-                <marker date="1511546636522" expanded="true" signature="8269:8317" ph="DELETE FROM " />
-                <marker date="1511546636522" expanded="true" signature="8653:8726" ph="INSERT INTO sessions... " />
-                <marker date="1511546636522" expanded="true" signature="9099:9152" ph="SELECT accou... accounts" />
-                <marker date="1511546636522" expanded="true" signature="9301:9351" ph="SELECT accou... sessions" />
-                <marker date="1511546636522" expanded="true" signature="10300:10367" ph="INSERT INTO test... " />
-                <marker date="1511546636522" expanded="true" signature="10839:10885" ph="INSERT INTO test... " />
-                <marker date="1511546636522" expanded="true" signature="11985:12031" ph="SELECT testI... test" />
-                <marker date="1511546636522" expanded="true" signature="11985:12068" ph="SELECT testI... test" />
-                <marker date="1511546636522" expanded="true" signature="12278:12305" ph="SELECT first... ACCO" />
-                <marker date="1511546636522" expanded="true" signature="12278:12337" ph="SELECT first... account" />
+                <marker date="1511548059764" expanded="true" signature="991:1079" ph="INSERT INTO institution... " />
+                <marker date="1511548059764" expanded="true" signature="1783:1863" ph="INSERT INTO account... " />
+                <marker date="1511548059764" expanded="true" signature="3075:3135" ph="SELECT insti... clientAccount" />
+                <marker date="1511548059764" expanded="true" signature="3413:3446" ph="INSERT INTO systemAdmin... " />
+                <marker date="1511548059764" expanded="true" signature="3676:3715" ph="INSERT INTO clientAccount... " />
+                <marker date="1511548059764" expanded="true" signature="3938:3988" ph="SELECT accou... account" />
+                <marker date="1511548059764" expanded="true" signature="4165:4213" ph="SELECT isAdm... account" />
+                <marker date="1511548059764" expanded="true" signature="5448:5505" ph="UPDATE accou... " />
+                <marker date="1511548059764" expanded="true" signature="5824:5887" ph="SELECT timeC... sessions" />
+                <marker date="1511548059764" expanded="true" signature="6851:6904" ph="SELECT salt,... account" />
+                <marker date="1511548059764" expanded="true" signature="7906:7948" ph="SELECT * fro... sessions" />
+                <marker date="1511548059764" expanded="true" signature="8288:8336" ph="DELETE FROM " />
+                <marker date="1511548059764" expanded="true" signature="8672:8745" ph="INSERT INTO sessions... " />
+                <marker date="1511548059764" expanded="true" signature="9118:9171" ph="SELECT accou... accounts" />
+                <marker date="1511548059764" expanded="true" signature="9320:9370" ph="SELECT accou... sessions" />
+                <marker date="1511548059764" expanded="true" signature="10319:10386" ph="INSERT INTO test... " />
+                <marker date="1511548059764" expanded="true" signature="10858:10904" ph="INSERT INTO test... " />
+                <marker date="1511548059764" expanded="true" signature="12004:12050" ph="SELECT testI... test" />
+                <marker date="1511548059764" expanded="true" signature="12004:12087" ph="SELECT testI... test" />
+                <marker date="1511548059764" expanded="true" signature="12297:12324" ph="SELECT first... ACCO" />
+                <marker date="1511548059764" expanded="true" signature="12297:12356" ph="SELECT first... account" />
               </folding>
             </state>
           </provider>
@@ -85,7 +84,7 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1511543870346" expanded="true" signature="243:294" ph="SELECT hash,... account" />
+                <marker date="1511547609063" expanded="true" signature="243:294" ph="SELECT hash,... account" />
               </folding>
             </state>
           </provider>
@@ -237,12 +236,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6483000" />
+    <option name="totallyTimeSpent" value="6974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -277,8 +277,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1511543870368" expanded="true" signature="485:565" ph="INSERT INTO account... " />
-            <marker date="1511543870368" expanded="true" signature="941:974" ph="INSERT INTO systemAdmin... " />
+            <marker date="1511547609082" expanded="true" signature="485:565" ph="INSERT INTO account... " />
+            <marker date="1511547609082" expanded="true" signature="941:974" ph="INSERT INTO systemAdmin... " />
           </folding>
         </state>
       </provider>
@@ -296,8 +296,8 @@
         <state relative-caret-position="527">
           <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
           <folding>
-            <marker date="1511543870368" expanded="true" signature="485:565" ph="INSERT INTO account... " />
-            <marker date="1511543870368" expanded="true" signature="941:974" ph="INSERT INTO systemAdmin... " />
+            <marker date="1511547609082" expanded="true" signature="485:565" ph="INSERT INTO account... " />
+            <marker date="1511547609082" expanded="true" signature="941:974" ph="INSERT INTO systemAdmin... " />
           </folding>
         </state>
       </provider>
@@ -331,7 +331,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1511543870346" expanded="true" signature="243:294" ph="SELECT hash,... account" />
+            <marker date="1511547609063" expanded="true" signature="243:294" ph="SELECT hash,... account" />
           </folding>
         </state>
       </provider>
@@ -354,30 +354,139 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/classes/Session.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+        <state relative-caret-position="6766">
+          <caret line="398" column="0" lean-forward="true" selection-start-line="398" selection-start-column="0" selection-end-line="398" selection-end-column="0" />
           <folding>
-            <marker date="1511546636522" expanded="true" signature="991:1079" ph="INSERT INTO institution... " />
-            <marker date="1511546636522" expanded="true" signature="1783:1863" ph="INSERT INTO account... " />
-            <marker date="1511546636522" expanded="true" signature="3075:3135" ph="SELECT insti... clientAccount" />
-            <marker date="1511546636522" expanded="true" signature="3413:3446" ph="INSERT INTO systemAdmin... " />
-            <marker date="1511546636522" expanded="true" signature="3676:3715" ph="INSERT INTO clientAccount... " />
-            <marker date="1511546636522" expanded="true" signature="3938:3988" ph="SELECT accou... account" />
-            <marker date="1511546636522" expanded="true" signature="4165:4213" ph="SELECT isAdm... account" />
-            <marker date="1511546636522" expanded="true" signature="5448:5505" ph="UPDATE accou... " />
-            <marker date="1511546636522" expanded="true" signature="5824:5887" ph="SELECT timeC... sessions" />
-            <marker date="1511546636522" expanded="true" signature="6851:6904" ph="SELECT salt,... account" />
-            <marker date="1511546636522" expanded="true" signature="7887:7929" ph="SELECT * fro... sessions" />
-            <marker date="1511546636522" expanded="true" signature="8269:8317" ph="DELETE FROM " />
-            <marker date="1511546636522" expanded="true" signature="8653:8726" ph="INSERT INTO sessions... " />
-            <marker date="1511546636522" expanded="true" signature="9099:9152" ph="SELECT accou... accounts" />
-            <marker date="1511546636522" expanded="true" signature="9301:9351" ph="SELECT accou... sessions" />
-            <marker date="1511546636522" expanded="true" signature="10300:10367" ph="INSERT INTO test... " />
-            <marker date="1511546636522" expanded="true" signature="10839:10885" ph="INSERT INTO test... " />
-            <marker date="1511546636522" expanded="true" signature="11985:12031" ph="SELECT testI... test" />
-            <marker date="1511546636522" expanded="true" signature="11985:12068" ph="SELECT testI... test" />
-            <marker date="1511546636522" expanded="true" signature="12278:12305" ph="SELECT first... ACCO" />
-            <marker date="1511546636522" expanded="true" signature="12278:12337" ph="SELECT first... account" />
+            <marker date="1511548059764" expanded="true" signature="991:1079" ph="INSERT INTO institution... " />
+            <marker date="1511548059764" expanded="true" signature="1783:1863" ph="INSERT INTO account... " />
+            <marker date="1511548059764" expanded="true" signature="3075:3135" ph="SELECT insti... clientAccount" />
+            <marker date="1511548059764" expanded="true" signature="3413:3446" ph="INSERT INTO systemAdmin... " />
+            <marker date="1511548059764" expanded="true" signature="3676:3715" ph="INSERT INTO clientAccount... " />
+            <marker date="1511548059764" expanded="true" signature="3938:3988" ph="SELECT accou... account" />
+            <marker date="1511548059764" expanded="true" signature="4165:4213" ph="SELECT isAdm... account" />
+            <marker date="1511548059764" expanded="true" signature="5448:5505" ph="UPDATE accou... " />
+            <marker date="1511548059764" expanded="true" signature="5824:5887" ph="SELECT timeC... sessions" />
+            <marker date="1511548059764" expanded="true" signature="6851:6904" ph="SELECT salt,... account" />
+            <marker date="1511548059764" expanded="true" signature="7906:7948" ph="SELECT * fro... sessions" />
+            <marker date="1511548059764" expanded="true" signature="8288:8336" ph="DELETE FROM " />
+            <marker date="1511548059764" expanded="true" signature="8672:8745" ph="INSERT INTO sessions... " />
+            <marker date="1511548059764" expanded="true" signature="9118:9171" ph="SELECT accou... accounts" />
+            <marker date="1511548059764" expanded="true" signature="9320:9370" ph="SELECT accou... sessions" />
+            <marker date="1511548059764" expanded="true" signature="10319:10386" ph="INSERT INTO test... " />
+            <marker date="1511548059764" expanded="true" signature="10858:10904" ph="INSERT INTO test... " />
+            <marker date="1511548059764" expanded="true" signature="12004:12050" ph="SELECT testI... test" />
+            <marker date="1511548059764" expanded="true" signature="12004:12087" ph="SELECT testI... test" />
+            <marker date="1511548059764" expanded="true" signature="12297:12324" ph="SELECT first... ACCO" />
+            <marker date="1511548059764" expanded="true" signature="12297:12356" ph="SELECT first... account" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/Test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1511547609082" expanded="true" signature="485:565" ph="INSERT INTO account... " />
+            <marker date="1511547609082" expanded="true" signature="941:974" ph="INSERT INTO systemAdmin... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/InputUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/Test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <marker date="1511547609082" expanded="true" signature="485:565" ph="INSERT INTO account... " />
+            <marker date="1511547609082" expanded="true" signature="941:974" ph="INSERT INTO systemAdmin... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/Login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/InputUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/DBget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1511547609063" expanded="true" signature="243:294" ph="SELECT hash,... account" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/TODO">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/classes/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="876">
+          <caret line="223" column="20" lean-forward="true" selection-start-line="223" selection-start-column="20" selection-end-line="223" selection-end-column="20" />
+          <folding>
+            <marker date="1511548059764" expanded="true" signature="991:1079" ph="INSERT INTO institution... " />
+            <marker date="1511548059764" expanded="true" signature="1783:1863" ph="INSERT INTO account... " />
+            <marker date="1511548059764" expanded="true" signature="3075:3135" ph="SELECT insti... clientAccount" />
+            <marker date="1511548059764" expanded="true" signature="3413:3446" ph="INSERT INTO systemAdmin... " />
+            <marker date="1511548059764" expanded="true" signature="3676:3715" ph="INSERT INTO clientAccount... " />
+            <marker date="1511548059764" expanded="true" signature="3938:3988" ph="SELECT accou... account" />
+            <marker date="1511548059764" expanded="true" signature="4165:4213" ph="SELECT isAdm... account" />
+            <marker date="1511548059764" expanded="true" signature="5448:5505" ph="UPDATE accou... " />
+            <marker date="1511548059764" expanded="true" signature="5824:5887" ph="SELECT timeC... sessions" />
+            <marker date="1511548059764" expanded="true" signature="6851:6904" ph="SELECT salt,... account" />
+            <marker date="1511548059764" expanded="true" signature="7906:7948" ph="SELECT * fro... sessions" />
+            <marker date="1511548059764" expanded="true" signature="8288:8336" ph="DELETE FROM " />
+            <marker date="1511548059764" expanded="true" signature="8672:8745" ph="INSERT INTO sessions... " />
+            <marker date="1511548059764" expanded="true" signature="9118:9171" ph="SELECT accou... accounts" />
+            <marker date="1511548059764" expanded="true" signature="9320:9370" ph="SELECT accou... sessions" />
+            <marker date="1511548059764" expanded="true" signature="10319:10386" ph="INSERT INTO test... " />
+            <marker date="1511548059764" expanded="true" signature="10858:10904" ph="INSERT INTO test... " />
+            <marker date="1511548059764" expanded="true" signature="12004:12050" ph="SELECT testI... test" />
+            <marker date="1511548059764" expanded="true" signature="12004:12087" ph="SELECT testI... test" />
+            <marker date="1511548059764" expanded="true" signature="12297:12324" ph="SELECT first... ACCO" />
+            <marker date="1511548059764" expanded="true" signature="12297:12356" ph="SELECT first... account" />
           </folding>
         </state>
       </provider>
