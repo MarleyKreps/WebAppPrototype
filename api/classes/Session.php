@@ -296,6 +296,7 @@ class Session {
       $qry->close();
       return 1;
     }
+    $qry->close();
     return 0;
   }
 
@@ -354,8 +355,10 @@ class Session {
     $uid = getUID($this->sid);
     $qry->bind_param("iis",$patientID,$uid,$datetime);
     if($qry->execute()){
+      $qry->close();
       return $qry->insert_id;
     }
+    $qry->close();
     return -1;
   }
 
@@ -373,14 +376,43 @@ class Session {
       return 1;
     }
   }
-  public function createSemmesTest(){
-
+  public function createSemmesTest($patientID, $p1L, $p2L, $p3L, $p4L, $p5L, $p6L, $p7L, $p8L, $p9L, $p10L, $p1R, $p2R, $p3R, $p4R, $p5R, $p6R, $p7R, $p8R, $p9R, $p10R){
+    $testId = $this->createTest($patientID);
+    $qry = $this->mysqli->prepare("INSERT INTO semmesTest (testID, p1L, p2L, p3L, p4L, p5L, p6L, p7L, p8L, p9L, p10L, p1R, p2R, p3R, p4R, p5R, p6R, p7R, p8R, p9R, p10R) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $qry->bind_param("iiiiiiiiiiiiiiiiiiiii", $testID, $p1L, $p2L, $p3L, $p4L, $p5L, $p6L, $p7L, $p8L, $p9L, $p10L, $p1R, $p2R, $p3R, $p4R, $p5R, $p6R, $p7R, $p8R, $p9R, $p10R);
+    if($qry->exectute()){
+      $qry->close();
+      return 1;
+    }
+    else{
+      $qry->close();
+      return 0;
+    }
   }
-  public function createMonofilimentTest(){
 
-  }
-  public function createMiniNutritionalTest(){
-
+  public function createMiniNutritionalTest($patientID, $questionA, $questionB, $questionC, $questionD, $questionE, $questionF1, $questionF2){
+    $testID = $this->createTest($patientID);
+    if($testID == -1){
+      echo "Test Failed to insert into the database";
+      return 0;
+    }
+    else{
+      if($questionF2 == -1){
+        $qry = $this->mysqli->prepare("INSERT INTO test (testID, a, b, c, d, e, f1, f2, score) VALUES (?, ?, ?, ?, ?, ?, ?, null, ?)");
+        $grade = $questionA + $questionB + $questionC + $questionD + $questionE + $questionF1;
+        $qry->bind_param("iiiiiiiii",$testID, $questionA, $questionB, $questionC, $questionD, $questionE, $questionF1, $grade);
+        $qry->execute();
+        $qry->close();
+      }
+      else{
+        $qry = $this->mysqli->prepare("INSERT INTO test (testID, a, b, c, d, e, f1, f2, score) VALUES (?, ?, ?, ?, ?, ?, null, ?, ?)");
+        $grade = $questionA + $questionB + $questionC + $questionD + $questionE + $questionF2;
+        $qry->bind_param("iiiiiiiii",$testID, $questionA, $questionB, $questionC, $questionD, $questionE, $questionF2, $grade);
+        $qry->execute();
+        $qry->close();
+      }
+      return 1;
+    }
   }
   //TODO implement a function that takes all of the data from a pressure wound test and inserts it into the database
   //TODO Call create test to get a test id and insert it into the test table
