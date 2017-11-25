@@ -83,7 +83,7 @@ CREATE TABLE pressureWoundTest
     granTissue INT(11) NOT NULL,
     epith INT(11) NOT NULL,
     CONSTRAINT pressureWoundTest_test_testID_fk FOREIGN KEY (testID) REFERENCES test (testID)
-);
+); 
 
 CREATE TABLE wagnerTest
 (
