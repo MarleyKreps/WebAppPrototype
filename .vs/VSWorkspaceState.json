@@ -3,9 +3,8 @@
     "",
     "\\webapp",
     "\\webapp\\src",
-    "\\webapp\\src\\pages",
-    "\\webapp\\src\\styling"
+    "\\webapp\\src\\pages"
   ],
-  "SelectedNode": "\\webapp\\src\\pages\\wagnerScaleResults.js",
+  "SelectedNode": "\\webapp\\src\\pages\\postData.js",
   "PreviewInSolutionExplorer": false
 }
