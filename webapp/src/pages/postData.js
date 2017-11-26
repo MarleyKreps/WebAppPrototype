@@ -5,7 +5,14 @@ export function PostData(type, userData) {
     return new Promise((resolve, reject){
         fetch(baseUrl + type, {
             method: 'POST',
-            body: JSON.stringify(userData.email + userData.password)
+            headers: {
+                'Accept': 'application/.json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: userData.email,
+                passwo: userData.password,
+            })
         })
             .then((response) => response.json())
             .then((responseJson) => {
